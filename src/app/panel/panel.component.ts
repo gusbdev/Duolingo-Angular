@@ -11,10 +11,16 @@ import { Sentences } from './sentences-mock';
 export class PanelComponent implements OnInit {
   public phrases: Sentence[] = Sentences;
   public instruction: string = 'Traduza a frase:';
+  public awnser: string = '';
 
   ngOnInit(): void {}
 
-  public updateAwnser(): void {
-    console.log('Teste');
+  public updateAwnser(awnser: Event): void {
+    this.awnser = (<HTMLInputElement>awnser.target).value;
+    console.log(this.awnser);
+  }
+
+  public verifyAwnser(): void {
+    console.log('Verificar resposta: ', this.awnser);
   }
 }
